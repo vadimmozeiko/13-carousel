@@ -1,0 +1,72 @@
+.container {
+    display: inline-block;
+    width: 100%;
+    max-width: 800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.carousel {
+    display: inline-block;
+    width: 500%;
+}
+
+.carousel-item {
+    display: inline-block;
+}
+
+.slide {
+    display: inline-block;
+    width: 20%;
+    float: left;
+
+}
+
+.slide > img {
+    display: inline-block;
+    width: 100%;
+    float: left;
+    margin-left: 0%;
+    position: relative;
+}
+
+.prv,
+.nxt {
+   width: 40px;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   font-size: 20px;
+   color: #fff8;
+   transition: all .2s;
+   cursor: pointer;
+   text-align: center;
+
+}
+
+.prv span,
+.nxt span {
+   width: 100%;
+   position: absolute;
+   left: 0;
+   top: 50%;
+   transform: translateY(-50%);
+   text-align: center;
+}
+
+.nxt {
+   right: 0;
+}
+
+.prv {
+   left: 0;
+}
+
+.nxt:hover,
+.prv:hover {
+   color: #fff;
+}
