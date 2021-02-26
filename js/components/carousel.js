@@ -10,17 +10,33 @@ const setTimer = 6;
 document.querySelector('.nxt').addEventListener('click', () =>{
     nextSlide();
     clearInterval(slideshow);
+
+    if (timer > 0) {
+        clearInterval(timer)
+        timer = setTimer
+        timeCount(timer)
+    }
+
     if(timer === 0) {
         timeCount(setTimer); 
     }
     
 });
+
+
 document.querySelector('.prv').addEventListener('click', () =>{
     prevSlide();
     clearInterval(slideshow);
+
+    if (timer > 0) {
+        clearInterval(timer)
+        timer = setTimer
+        timeCount(timer)
+    }
+
     if(timer === 0) {
-        timeCount(setTimer) ; 
-      }
+        timeCount(setTimer); 
+    }
 });
 
 function nextSlide() {
@@ -60,5 +76,3 @@ timer = setInterval (function () {
             }
     },1000)  
 };
-
-
