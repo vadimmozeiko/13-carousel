@@ -1,10 +1,11 @@
 let currentSlide = 0;
 const slides = document.querySelectorAll('.img');
 const totalSlides = slides.length;
-const slideshow = setInterval(nextSlide, 5000);
+let slideshow = setInterval(nextSlide, 5000);
 
 let timer = 0;
-const setTimer = 5;
+const setTimer = 6;
+
 
 document.querySelector('.nxt').addEventListener('click', () =>{
     nextSlide();
@@ -51,9 +52,11 @@ function updateSlidePosition() {
 function timeCount(number){
 timer = setInterval (function () {
         number--
+        console.log(number)
            if (number === 0){
                    clearInterval(timer);
-                   setInterval(autoSlideshow, 5000);
+                   timer = 0;
+                   slideshow = setInterval(nextSlide, 5000);
             }
     },1000)  
 };
