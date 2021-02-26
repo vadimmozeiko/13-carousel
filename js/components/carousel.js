@@ -1,44 +1,61 @@
 let currentSlide = 0;
 const slides = document.querySelectorAll('.img');
-const totalSlides = slides.length
-const timeout = setInterval(autoSlideshow, 5000);
+const totalSlides = slides.length;
+const slideshow = setInterval(nextSlide, 5000);
+
+let timer = 0;
+const setTimer = 5;
 
 document.querySelector('.nxt').addEventListener('click', () =>{
-    nextSlide()
-    clearInterval(timeout)
-
-})
+    nextSlide();
+    clearInterval(slideshow);
+    if(timer === 0) {
+        timeCount(setTimer); 
+    }
+    
+});
 document.querySelector('.prv').addEventListener('click', () =>{
-    prevSlide()
-    clearInterval(timeout)
-})
+    prevSlide();
+    clearInterval(slideshow);
+    if(timer === 0) {
+        timeCount(setTimer) ; 
+      }
+});
 
 function nextSlide() {
     if (currentSlide === totalSlides -1){
-        currentSlide = 0
+        currentSlide = 0;
     } else {
         currentSlide++;
     }
-    updateSlidePosition()
-}
+    updateSlidePosition();
+};
 
 function prevSlide() {
     if (currentSlide === 0){
-        currentSlide = totalSlides - 1
+        currentSlide = totalSlides - 1;
     } else {
         currentSlide--;
     }
-    updateSlidePosition()
-}
+    updateSlidePosition();
+};
 
 function updateSlidePosition() {
     for (const slide of slides) {
         slide.style.transform = `translate(-${currentSlide}00%)`;
     }
     slides[currentSlide].style.transform = `translate(-${currentSlide}00%)`;
-}
+};
 
 
-function autoSlideshow() {
-    nextSlide()
-}
+function timeCount(number){
+timer = setInterval (function () {
+        number--
+           if (number === 0){
+                   clearInterval(timer);
+                   setInterval(autoSlideshow, 5000);
+            }
+    },1000)  
+};
+
+
