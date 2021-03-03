@@ -4,7 +4,7 @@ const totalSlides = slides.length;
 let slideshow = setInterval(nextSlide, 5000);
 
 let timer = 0;
-const setTimer = 6;
+const setTimer = 5;
 
 
 document.querySelector('.nxt').addEventListener('click', () =>{
